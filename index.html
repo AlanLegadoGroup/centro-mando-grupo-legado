@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Legado | Centro de Mando</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #080808;
+            color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 45px 20px 30px;
+            border-bottom: 1px solid #b89b45;
+        }
+
+        .logo {
+            font-size: 42px;
+            color: #d4af37;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            color: #aaa;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        .motto {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #d4af37;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #333;
+            padding: 25px;
+            border-radius: 12px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            border-color: #d4af37;
+            transform: translateY(-3px);
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            font-size: 19px;
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .status {
+            margin-top: 35px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .status h2 {
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .company {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .active {
+            color: #55c878;
+        }
+
+        .future {
+            color: #777;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">GRUPO LEGADO</div>
+    <div class="subtitle">CENTRO DE MANDO</div>
+    <div class="motto">
+        Construyendo patrimonio para las próximas generaciones.
+    </div>
+</header>
+
+<main>
+
+    <h1>Centro de Mando</h1>
+
+    <section class="dashboard">
+
+        <div class="card">
+            <div class="icon">🎟️</div>
+            <h2>Legado Sorteos</h2>
+            <p>Ventas, campañas, clientes y operación de sorteos.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💰</div>
+            <h2>Finanzas</h2>
+            <p>Capital, ingresos, gastos y crecimiento financiero.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📊</div>
+            <h2>Control Maestro</h2>
+            <p>Indicadores, objetivos y seguimiento empresarial.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📣</div>
+            <h2>Marketing</h2>
+            <p>Contenido, campañas, redes sociales y estrategia comercial.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📁</div>
+            <h2>Documentación</h2>
+            <p>Procesos, manuales, archivos y documentos oficiales.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h2>Ecosistema Digital</h2>
+            <p>Página web, plataformas y herramientas digitales.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚀</div>
+            <h2>Proyectos</h2>
+            <p>Proyectos activos, oportunidades e iniciativas futuras.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏛️</div>
+            <h2>Dirección General</h2>
+            <p>Decisiones, agenda ejecutiva y objetivos de Grupo Legado.</p>
+        </div>
+
+    </section>
+
+    <section class="status">
+
+        <h2>Estado del Grupo</h2>
+
+        <div class="company">
+            <span>🎟️ Legado Sorteos</span>
+            <span class="active">● ACTIVO</span>
+        </div>
+
+        <div class="company">
+            <span>🏠 Legado Bienes Raíces</span>
+            <span class="future">○ FUTURO</span>
+        </div>
+
+        <div class="company">
+            <span>🚛 Transportes Express Borrega's</span>
+            <span class="future">○ FUTURO</span>
+        </div>
+
+        <div class="company">
+            <span>🚘 Legado Motors</span>
+            <span class="future">○ FUTURO</span>
+        </div>
+
+        <div class="company">
+            <span>💰 Legado Capital</span>
+            <span class="future">○ FUTURO</span>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    GRUPO LEGADO © 2026
+</footer>
+
+</body>
+</html>
