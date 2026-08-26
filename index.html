@@ -1,578 +1,1309 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Grupo Legado | Centro de Mando</title>
+<title>Grupo Legado | Executive Command</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-        :root {
-            --gold: #D4AF37;
-            --gold-soft: #B9962E;
-            --black: #080808;
-            --black-soft: #101010;
-            --panel: #121212;
-            --border: rgba(212, 175, 55, 0.22);
-            --text: #F2EFE7;
-            --muted: #8E8E8E;
-        }
+<style>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+:root{
+    --gold:#D4AF37;
+    --gold-light:#E5C65A;
+    --bg:#070707;
+    --panel:#0E0E0E;
+    --panel2:#121212;
+    --border:rgba(212,175,55,.18);
+    --text:#F4F1E8;
+    --muted:#777;
+    --green:#6EAA7B;
+}
 
-        body {
-            background:
-                radial-gradient(circle at top, #17140c 0%, #080808 42%);
-            color: var(--text);
-            min-height: 100vh;
-            font-family: 'Montserrat', sans-serif;
-        }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        /* HEADER */
+body{
+    background:
+        radial-gradient(circle at 50% -20%,rgba(212,175,55,.09),transparent 45%),
+        #070707;
 
-        header {
-            padding: 70px 25px 45px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    min-height:100vh;
+}
 
-        .brand {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(42px, 8vw, 72px);
-            font-weight: 600;
-            letter-spacing: 8px;
-            color: var(--gold);
-        }
 
-        .command {
-            margin-top: 4px;
-            font-size: 11px;
-            letter-spacing: 6px;
-            color: #BDBDBD;
-            text-transform: uppercase;
-        }
+/* SIDEBAR */
 
-        .motto {
-            margin-top: 25px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            font-style: italic;
-            color: #C7C0AE;
-        }
+.sidebar{
 
-        /* MAIN */
+    position:fixed;
+    left:0;
+    top:0;
 
-        main {
-            width: min(1150px, 92%);
-            margin: auto;
-            padding: 55px 0 80px;
-        }
+    width:245px;
+    height:100vh;
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+    background:#090909;
 
-        .section-title span {
-            display: block;
-            font-size: 10px;
-            letter-spacing: 4px;
-            color: var(--gold);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
+    border-right:1px solid rgba(255,255,255,.06);
 
-        .section-title h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 38px;
-            font-weight: 600;
-        }
+    padding:32px 20px;
 
-        /* DASHBOARD */
+}
 
-        .dashboard {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 18px;
-        }
+.logo{
 
-        .card {
-            position: relative;
-            background: linear-gradient(
-                145deg,
-                rgba(255,255,255,0.035),
-                rgba(255,255,255,0.012)
-            );
+    font-family:'Cormorant Garamond',serif;
 
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 30px 28px;
-            min-height: 155px;
+    color:var(--gold);
 
-            text-decoration: none;
-            color: var(--text);
+    font-size:28px;
 
-            transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                background 0.25s ease;
-        }
+    letter-spacing:4px;
 
-        .card::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 2px;
-            height: 0;
-            background: var(--gold);
-            transition: height 0.25s ease;
-        }
+    text-align:center;
 
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border);
-            background: rgba(212,175,55,0.035);
-        }
+}
 
-        .card:hover::before {
-            height: 100%;
-        }
+.logo-sub{
 
-        .card-number {
-            font-size: 10px;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-bottom: 22px;
-        }
+    text-align:center;
 
-        .card h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 27px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
+    font-size:8px;
 
-        .card p {
-            font-size: 12px;
-            line-height: 1.7;
-            color: var(--muted);
-        }
+    letter-spacing:4px;
 
-        .arrow {
-            position: absolute;
-            right: 25px;
-            bottom: 22px;
-            color: var(--gold);
-            font-size: 18px;
-        }
+    color:#666;
 
-        /* STATUS */
+    margin-top:3px;
 
-        .status {
-            margin-top: 65px;
-            border-top: 1px solid var(--border);
-            padding-top: 40px;
-        }
+}
 
-        .status-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            margin-bottom: 25px;
-        }
+.line{
 
-        .status-header span {
-            font-size: 10px;
-            letter-spacing: 3px;
-            color: var(--gold);
-        }
+    width:45px;
 
-        .status-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 30px;
-            font-weight: 600;
-        }
+    height:1px;
 
-        .company {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    background:var(--gold);
 
-            padding: 19px 5px;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin:25px auto;
 
-            font-size: 13px;
-        }
+    opacity:.6;
 
-        .company-name {
-            color: #D9D9D9;
-        }
+}
 
-        .status-active {
-            color: #7FB88A;
-            font-size: 10px;
-            letter-spacing: 2px;
-        }
+.menu-title{
 
-        .status-future {
-            color: #666;
-            font-size: 10px;
-            letter-spacing: 2px;
-        }
+    font-size:9px;
 
-        /* FOOTER */
+    letter-spacing:3px;
 
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.06);
-            text-align: center;
-            padding: 30px 20px 45px;
-            color: #555;
-            font-size: 9px;
-            letter-spacing: 3px;
-        }
+    color:#555;
 
-        /* MOBILE */
+    margin:25px 10px 12px;
 
-        @media (max-width: 600px) {
+}
 
-            header {
-                padding: 50px 20px 35px;
-            }
+.menu a{
 
-            .brand {
-                letter-spacing: 5px;
-            }
+    display:flex;
 
-            .motto {
-                font-size: 16px;
-            }
+    align-items:center;
 
-            main {
-                padding-top: 40px;
-            }
+    gap:12px;
 
-            .section-title h1 {
-                font-size: 32px;
-            }
+    padding:12px 12px;
 
-            .dashboard {
-                grid-template-columns: 1fr;
-            }
+    margin:3px 0;
 
-        }
+    color:#999;
 
-    </style>
+    text-decoration:none;
+
+    font-size:12px;
+
+    border-left:2px solid transparent;
+
+    transition:.2s;
+
+}
+
+.menu a:hover{
+
+    color:white;
+
+    background:rgba(212,175,55,.04);
+
+    border-left-color:var(--gold);
+
+}
+
+.menu a.active{
+
+    color:var(--gold);
+
+    background:rgba(212,175,55,.06);
+
+    border-left-color:var(--gold);
+
+}
+
+
+/* MAIN */
+
+.main{
+
+    margin-left:245px;
+
+    padding:32px 45px 60px;
+
+    max-width:1500px;
+
+}
+
+
+/* TOPBAR */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-bottom:25px;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.page-title{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:36px;
+
+}
+
+.page-title span{
+
+    display:block;
+
+    font-family:Inter,sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:var(--gold);
+
+    margin-bottom:6px;
+
+}
+
+.profile{
+
+    text-align:right;
+
+}
+
+.profile small{
+
+    display:block;
+
+    font-size:9px;
+
+    color:#555;
+
+    letter-spacing:2px;
+
+}
+
+.profile strong{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:18px;
+
+    font-weight:500;
+
+}
+
+
+/* HERO */
+
+.hero{
+
+    margin-top:35px;
+
+    padding:35px;
+
+    background:
+
+        linear-gradient(120deg,rgba(212,175,55,.08),transparent 45%),
+
+        linear-gradient(90deg,#111,#0B0B0B);
+
+    border:1px solid var(--border);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.hero:after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-120px;
+
+    top:-150px;
+
+    width:350px;
+
+    height:350px;
+
+    border:1px solid rgba(212,175,55,.12);
+
+    border-radius:50%;
+
+}
+
+.hero-label{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+}
+
+.hero h1{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:46px;
+
+    font-weight:600;
+
+    margin-top:8px;
+
+}
+
+.hero p{
+
+    color:#888;
+
+    font-size:12px;
+
+    margin-top:8px;
+
+}
+
+.hero-status{
+
+    margin-top:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:#777;
+
+}
+
+.dot{
+
+    width:7px;
+
+    height:7px;
+
+    background:var(--green);
+
+    border-radius:50%;
+
+    box-shadow:0 0 10px rgba(110,170,123,.7);
+
+}
+
+
+/* METRICS */
+
+.metrics{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+
+    margin-top:18px;
+
+}
+
+.metric{
+
+    background:var(--panel);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    padding:22px;
+
+}
+
+.metric-label{
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#666;
+
+}
+
+.metric-value{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:32px;
+
+    color:var(--gold);
+
+    margin-top:8px;
+
+}
+
+.metric-note{
+
+    font-size:9px;
+
+    color:#555;
+
+    margin-top:5px;
+
+}
+
+
+/* MODULES */
+
+.section{
+
+    margin-top:45px;
+
+}
+
+.section-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:18px;
+
+}
+
+.section-head span{
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:var(--gold);
+
+}
+
+.section-head h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:27px;
+
+    font-weight:500;
+
+}
+
+.modules{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:14px;
+
+}
+
+.module{
+
+    min-height:145px;
+
+    padding:24px;
+
+    background:var(--panel);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    text-decoration:none;
+
+    color:white;
+
+    position:relative;
+
+    transition:.25s;
+
+}
+
+.module:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--border);
+
+    background:var(--panel2);
+
+}
+
+.module-number{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+}
+
+.module h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    margin-top:25px;
+
+    font-weight:600;
+
+}
+
+.module p{
+
+    color:#666;
+
+    font-size:10px;
+
+    margin-top:5px;
+
+}
+
+.module-arrow{
+
+    position:absolute;
+
+    right:20px;
+
+    bottom:20px;
+
+    color:#555;
+
+}
+
+
+/* PORTFOLIO */
+
+.portfolio{
+
+    display:grid;
+
+    grid-template-columns:1.3fr 1fr;
+
+    gap:18px;
+
+}
+
+.panel{
+
+    background:var(--panel);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    padding:25px;
+
+}
+
+.company{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:17px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+.company:last-child{
+
+    border-bottom:none;
+
+}
+
+.company-name{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:19px;
+
+}
+
+.badge{
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    padding:5px 9px;
+
+    border:1px solid;
+
+}
+
+.badge.active{
+
+    color:var(--green);
+
+    border-color:rgba(110,170,123,.3);
+
+}
+
+.badge.future{
+
+    color:#555;
+
+    border-color:#222;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+    margin-top:55px;
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#444;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        height:auto;
+
+        border-right:none;
+
+        border-bottom:1px solid rgba(255,255,255,.06);
+
+    }
+
+    .menu{
+
+        display:flex;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .menu-title{
+
+        display:none;
+
+    }
+
+    .main{
+
+        margin-left:0;
+
+        padding:25px;
+
+    }
+
+    .metrics{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .modules{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .portfolio{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .main{
+
+        padding:20px 15px 40px;
+
+    }
+
+    .topbar{
+
+        align-items:flex-start;
+
+    }
+
+    .profile{
+
+        display:none;
+
+    }
+
+    .hero{
+
+        padding:25px;
+
+    }
+
+    .hero h1{
+
+        font-size:36px;
+
+    }
+
+    .metrics{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .modules{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-<header>
 
-    <div class="brand">
-        GRUPO LEGADO
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        LEGADO
     </div>
 
-    <div class="command">
-        Centro de Mando
+    <div class="logo-sub">
+        GRUPO EMPRESARIAL
     </div>
 
-    <div class="motto">
-        Construyendo patrimonio para las próximas generaciones.
+    <div class="line"></div>
+
+
+    <div class="menu-title">
+        DIRECCIÓN
     </div>
 
-</header>
+    <nav class="menu">
+
+        <a href="#" class="active">
+            ◆ Dashboard
+        </a>
+
+        <a href="#">
+            ◇ Agenda Ejecutiva
+        </a>
+
+        <a href="#">
+            ◇ Decisiones
+        </a>
+
+    </nav>
 
 
-<main>
+    <div class="menu-title">
+        OPERACIONES
+    </div>
 
-    <div class="section-title">
+    <nav class="menu">
 
-        <span>Dirección General</span>
+        <a href="#">
+            ◇ Sorteos
+        </a>
+
+        <a href="#">
+            ◇ Finanzas
+        </a>
+
+        <a href="#">
+            ◇ Marketing
+        </a>
+
+        <a href="#">
+            ◇ Proyectos
+        </a>
+
+    </nav>
+
+
+    <div class="menu-title">
+        SISTEMA
+    </div>
+
+    <nav class="menu">
+
+        <a href="#">
+            ◇ Documentación
+        </a>
+
+        <a href="#">
+            ◇ Ecosistema Digital
+        </a>
+
+        <a href="#">
+            ◇ Configuración
+        </a>
+
+    </nav>
+
+</aside>
+
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+
+    <div class="topbar">
+
+        <div class="page-title">
+
+            <span>GRUPO LEGADO</span>
+
+            Centro de Mando
+
+        </div>
+
+
+        <div class="profile">
+
+            <small>DIRECCIÓN GENERAL</small>
+
+            <strong>Alan G. Ramírez</strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-label">
+            EXECUTIVE COMMAND CENTER
+        </div>
 
         <h1>
-            Centro de Control
+            Bienvenido, Director.
         </h1>
 
-    </div>
+        <p>
+            Centro estratégico de operación y crecimiento de Grupo Legado.
+        </p>
+
+        <div class="hero-status">
+
+            <span class="dot"></span>
+
+            SISTEMA OPERATIVO
+
+        </div>
+
+    </section>
 
 
-    <section class="dashboard">
 
+    <!-- METRICS -->
 
-        <a class="card" href="#sorteos">
+    <section class="metrics">
 
-            <div class="card-number">
+        <div class="metric">
+
+            <div class="metric-label">
+                EMPRESAS ACTIVAS
+            </div>
+
+            <div class="metric-value">
                 01
             </div>
 
-            <h2>
+            <div class="metric-note">
                 Legado Sorteos
-            </h2>
-
-            <p>
-                Operación comercial, campañas,
-                ventas y clientes.
-            </p>
-
-            <div class="arrow">
-                →
             </div>
 
-        </a>
+        </div>
 
 
-        <a class="card" href="#finanzas">
+        <div class="metric">
 
-            <div class="card-number">
-                02
+            <div class="metric-label">
+                PROYECTOS
             </div>
 
-            <h2>
-                Finanzas
-            </h2>
-
-            <p>
-                Capital, ingresos, gastos
-                y resultados.
-            </p>
-
-            <div class="arrow">
-                →
-            </div>
-
-        </a>
-
-
-        <a class="card" href="#control">
-
-            <div class="card-number">
+            <div class="metric-value">
                 03
             </div>
 
-            <h2>
-                Control Maestro
-            </h2>
-
-            <p>
-                Indicadores, objetivos,
-                decisiones y seguimiento.
-            </p>
-
-            <div class="arrow">
-                →
+            <div class="metric-note">
+                En desarrollo
             </div>
 
-        </a>
+        </div>
 
 
-        <a class="card" href="#marketing">
+        <div class="metric">
 
-            <div class="card-number">
-                04
+            <div class="metric-label">
+                CAMPAÑAS
             </div>
 
-            <h2>
-                Marketing
-            </h2>
-
-            <p>
-                Estrategia, contenido,
-                campañas y comunicación.
-            </p>
-
-            <div class="arrow">
-                →
+            <div class="metric-value">
+                01
             </div>
 
-        </a>
-
-
-        <a class="card" href="#documentacion">
-
-            <div class="card-number">
-                05
+            <div class="metric-note">
+                Registrada
             </div>
 
-            <h2>
-                Documentación
-            </h2>
+        </div>
 
-            <p>
-                Procesos, manuales,
-                archivos y registros.
-            </p>
 
-            <div class="arrow">
-                →
+        <div class="metric">
+
+            <div class="metric-label">
+                ESTADO
             </div>
 
-        </a>
-
-
-        <a class="card" href="#digital">
-
-            <div class="card-number">
-                06
+            <div class="metric-value">
+                01
             </div>
 
-            <h2>
-                Ecosistema Digital
-            </h2>
-
-            <p>
-                Plataformas, web,
-                sistemas y herramientas.
-            </p>
-
-            <div class="arrow">
-                →
+            <div class="metric-note">
+                Operación activa
             </div>
 
-        </a>
-
-
-        <a class="card" href="#proyectos">
-
-            <div class="card-number">
-                07
-            </div>
-
-            <h2>
-                Proyectos
-            </h2>
-
-            <p>
-                Iniciativas activas,
-                oportunidades y expansión.
-            </p>
-
-            <div class="arrow">
-                →
-            </div>
-
-        </a>
-
-
-        <a class="card" href="#direccion">
-
-            <div class="card-number">
-                08
-            </div>
-
-            <h2>
-                Dirección General
-            </h2>
-
-            <p>
-                Estrategia, agenda ejecutiva
-                y decisiones.
-            </p>
-
-            <div class="arrow">
-                →
-            </div>
-
-        </a>
-
+        </div>
 
     </section>
 
 
-    <section class="status">
 
-        <div class="status-header">
+    <!-- MODULES -->
+
+    <section class="section">
+
+        <div class="section-head">
 
             <div>
-                <span>PORTAFOLIO</span>
-                <h2>Estado del Grupo</h2>
+
+                <span>SISTEMA CENTRAL</span>
+
+                <h2>
+                    Módulos ejecutivos
+                </h2>
+
             </div>
 
         </div>
 
 
-        <div class="company">
-
-            <span class="company-name">
-                Legado Sorteos
-            </span>
-
-            <span class="status-active">
-                ● ACTIVO
-            </span>
-
-        </div>
+        <div class="modules">
 
 
-        <div class="company">
+            <a href="#" class="module">
 
-            <span class="company-name">
-                Legado Bienes Raíces
-            </span>
+                <div class="module-number">
+                    01
+                </div>
 
-            <span class="status-future">
-                ○ FUTURO
-            </span>
+                <h3>
+                    Legado Sorteos
+                </h3>
 
-        </div>
+                <p>
+                    Operación comercial
+                </p>
 
+                <div class="module-arrow">
+                    →
+                </div>
 
-        <div class="company">
-
-            <span class="company-name">
-                Legado Transportes Express Borrega's
-            </span>
-
-            <span class="status-future">
-                ○ FUTURO
-            </span>
-
-        </div>
+            </a>
 
 
-        <div class="company">
+            <a href="#" class="module">
 
-            <span class="company-name">
-                Legado Motors
-            </span>
+                <div class="module-number">
+                    02
+                </div>
 
-            <span class="status-future">
-                ○ FUTURO
-            </span>
+                <h3>
+                    Finanzas
+                </h3>
 
-        </div>
+                <p>
+                    Capital y resultados
+                </p>
+
+                <div class="module-arrow">
+                    →
+                </div>
+
+            </a>
 
 
-        <div class="company">
+            <a href="#" class="module">
 
-            <span class="company-name">
-                Legado Capital
-            </span>
+                <div class="module-number">
+                    03
+                </div>
 
-            <span class="status-future">
-                ○ FUTURO
-            </span>
+                <h3>
+                    Marketing
+                </h3>
+
+                <p>
+                    Comunicación y crecimiento
+                </p>
+
+                <div class="module-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#" class="module">
+
+                <div class="module-number">
+                    04
+                </div>
+
+                <h3>
+                    Proyectos
+                </h3>
+
+                <p>
+                    Desarrollo empresarial
+                </p>
+
+                <div class="module-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#" class="module">
+
+                <div class="module-number">
+                    05
+                </div>
+
+                <h3>
+                    Control Maestro
+                </h3>
+
+                <p>
+                    Indicadores y objetivos
+                </p>
+
+                <div class="module-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#" class="module">
+
+                <div class="module-number">
+                    06
+                </div>
+
+                <h3>
+                    Documentación
+                </h3>
+
+                <p>
+                    Archivo corporativo
+                </p>
+
+                <div class="module-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#" class="module">
+
+                <div class="module-number">
+                    07
+                </div>
+
+                <h3>
+                    Ecosistema Digital
+                </h3>
+
+                <p>
+                    Infraestructura tecnológica
+                </p>
+
+                <div class="module-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+            <a href="#" class="module">
+
+                <div class="module-number">
+                    08
+                </div>
+
+                <h3>
+                    Dirección General
+                </h3>
+
+                <p>
+                    Estrategia y decisiones
+                </p>
+
+                <div class="module-arrow">
+                    →
+                </div>
+
+            </a>
+
 
         </div>
 
     </section>
 
+
+
+    <!-- PORTFOLIO -->
+
+    <section class="section">
+
+        <div class="section-head">
+
+            <div>
+
+                <span>PORTAFOLIO</span>
+
+                <h2>
+                    Estructura empresarial
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="portfolio">
+
+
+            <div class="panel">
+
+
+                <div class="company">
+
+                    <span class="company-name">
+                        Legado Sorteos
+                    </span>
+
+                    <span class="badge active">
+                        ACTIVO
+                    </span>
+
+                </div>
+
+
+                <div class="company">
+
+                    <span class="company-name">
+                        Legado Bienes Raíces
+                    </span>
+
+                    <span class="badge future">
+                        FUTURO
+                    </span>
+
+                </div>
+
+
+                <div class="company">
+
+                    <span class="company-name">
+                        Transportes Express Borrega's
+                    </span>
+
+                    <span class="badge future">
+                        FUTURO
+                    </span>
+
+                </div>
+
+
+                <div class="company">
+
+                    <span class="company-name">
+                        Legado Motors
+                    </span>
+
+                    <span class="badge future">
+                        FUTURO
+                    </span>
+
+                </div>
+
+
+                <div class="company">
+
+                    <span class="company-name">
+                        Legado Capital
+                    </span>
+
+                    <span class="badge future">
+                        FUTURO
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="metric-label">
+                    PRINCIPIO DEL GRUPO
+                </div>
+
+                <h2 style="
+                    font-family:'Cormorant Garamond',serif;
+                    font-size:34px;
+                    font-weight:500;
+                    margin-top:18px;
+                    color:#D4AF37;
+                ">
+                    Patrimonio.
+                </h2>
+
+                <p style="
+                    color:#777;
+                    font-size:12px;
+                    line-height:1.8;
+                    margin-top:12px;
+                ">
+                    Grupo Legado nace con una visión de
+                    largo plazo: construir empresas,
+                    generar patrimonio y crear una estructura
+                    capaz de trascender generaciones.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <span>
+            GRUPO LEGADO
+        </span>
+
+        <span>
+            CENTRO DE MANDO · V2.0 · 2026
+        </span>
+
+    </footer>
+
+
 </main>
-
-
-<footer>
-
-    GRUPO LEGADO · DIRECCIÓN GENERAL · 2026
-
-</footer>
 
 </body>
 </html>
