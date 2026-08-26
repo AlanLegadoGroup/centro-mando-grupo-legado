@@ -1,1 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Legado Sorteos | Centro de Mando</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --gold:#D4AF37;
+    --bg:#070707;
+    --panel:#0E0E0E;
+    --border:rgba(212,175,55,.18);
+    --text:#F4F1E8;
+    --muted:#777;
+    --green:#6EAA7B;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:
+        radial-gradient(circle at 50% -20%,rgba(212,175,55,.08),transparent 45%),
+        var(--bg);
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    min-height:100vh;
+}
+
+
+/* BARRA SUPERIOR */
+
+.topbar{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 45px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    background:#090909;
+}
+
+.brand{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--gold);
+    font-size:25px;
+    letter-spacing:4px;
+}
+
+.back{
+    color:#777;
+    text-decoration:none;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+.back:hover{
+    color:var(--gold);
+}
+
+
+/* CONTENIDO */
+
+.main{
+    width:min(1250px,92%);
+    margin:auto;
+    padding:45px 0 70px;
+}
+
+
+/* ENCABEZADO */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    padding-bottom:28px;
+}
+
+.eyebrow{
+    color:var(--gold);
+    font-size:9px;
+    letter-spacing:4px;
+    margin-bottom:8px;
+}
+
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:44px;
+    font-weight:600;
+}
+
+.description{
+    color:#777;
+    font-size:11px;
+    margin-top:6px;
+}
+
+.status{
+    color:var(--green);
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+
+/* TARJETAS DE INDICADORES */
+
+.metrics{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:25px;
+}
+
+.metric{
+    background:var(--panel);
+    border:1px solid rgba(255,255,255,.06);
+    padding:22px;
+}
+
+.metric-label{
+    font-size:8px;
+    letter-spacing:2px;
+    color:#666;
+}
+
+.metric-value{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--gold);
+    font-size:35px;
+    margin-top:7px;
+}
+
+.metric-note{
+    font-size:9px;
+    color:#555;
+    margin-top:4px;
+}
+
+
+/* SECCIONES */
+
+.section{
+    margin-top:45px;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:17px;
+}
+
+.section-title span{
+    color:var(--gold);
+    font-size:9px;
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    font-weight:500;
+}
+
+
+/* SORTEO ACTUAL */
+
+.raffle{
+    background:
+        linear-gradient(110deg,rgba(212,175,55,.07),transparent 55%),
+        var(--panel);
+
+    border:1px solid var(--border);
+    padding:30px;
+}
+
+.raffle-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:start;
+}
+
+.raffle-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:31px;
+}
+
+.raffle-label{
+    color:#777;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:7px;
+}
+
+.badge{
+    border:1px solid rgba(110,170,123,.35);
+    color:var(--green);
+    padding:6px 10px;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.progress-area{
+    margin-top:28px;
+}
+
+.progress-header{
+    display:flex;
+    justify-content:space-between;
+    color:#777;
+    font-size:10px;
+    margin-bottom:8px;
+}
+
+.progress{
+    height:6px;
+    background:#1A1A1A;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:var(--gold);
+}
+
+
+/* INFORMACIÓN */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.info{
+    background:var(--panel);
+    border:1px solid rgba(255,255,255,.06);
+    padding:25px;
+}
+
+.info-label{
+    font-size:8px;
+    letter-spacing:2px;
+    color:#666;
+}
+
+.info-value{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    margin-top:10px;
+    color:#ddd;
+}
+
+
+/* PRÓXIMAS ACCIONES */
+
+.actions{
+    background:var(--panel);
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.action{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 22px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.action:last-child{
+    border-bottom:none;
+}
+
+.action-left{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.action-number{
+    color:var(--gold);
+    font-size:9px;
+}
+
+.action-name{
+    font-size:11px;
+}
+
+.action-status{
+    color:#666;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+
+/* FOOTER */
+
+footer{
+    margin-top:55px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.05);
+    display:flex;
+    justify-content:space-between;
+    color:#444;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .metrics{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .topbar{
+        padding:0 20px;
+    }
+
+    .main{
+        width:92%;
+        padding-top:30px;
+    }
+
+    .header{
+        display:block;
+    }
+
+    .status{
+        margin-top:15px;
+    }
+
+    h1{
+        font-size:37px;
+    }
+
+    .metrics{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .raffle-top{
+        display:block;
+    }
+
+    .badge{
+        display:inline-block;
+        margin-top:15px;
+    }
+
+    footer{
+        display:block;
+        line-height:2;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+        LEGADO
+    </div>
+
+    <a href="index.html" class="back">
+        ← CENTRO DE MANDO
+    </a>
+
+</header>
+
+
+<main class="main">
+
+
+    <section class="header">
+
+        <div>
+
+            <div class="eyebrow">
+                UNIDAD DE NEGOCIO · 01
+            </div>
+
+            <h1>
+                Legado Sorteos
+            </h1>
+
+            <div class="description">
+                Centro de operación comercial de la unidad.
+            </div>
+
+        </div>
+
+        <div class="status">
+            ● OPERACIÓN ACTIVA
+        </div>
+
+    </section>
+
+
+    <!-- INDICADORES -->
+
+    <section class="metrics">
+
+        <div class="metric">
+
+            <div class="metric-label">
+                SORTEOS ACTIVOS
+            </div>
+
+            <div class="metric-value">
+                00
+            </div>
+
+            <div class="metric-note">
+                Actualmente
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-label">
+                BOLETOS VENDIDOS
+            </div>
+
+            <div class="metric-value">
+                000
+            </div>
+
+            <div class="metric-note">
+                Registro actual
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-label">
+                INGRESOS
+            </div>
+
+            <div class="metric-value">
+                $0
+            </div>
+
+            <div class="metric-note">
+                MXN
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-label">
+                CONVERSIÓN
+            </div>
+
+            <div class="metric-value">
+                0%
+            </div>
+
+            <div class="metric-note">
+                Ventas / prospectos
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SORTEO -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <div>
+
+                <span>OPERACIÓN COMERCIAL</span>
+
+                <h2>
+                    Sorteo actual
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="raffle">
+
+            <div class="raffle-top">
+
+                <div>
+
+                    <div class="raffle-label">
+                        PRÓXIMO SORTEO
+                    </div>
+
+                    <div class="raffle-name">
+                        Sin sorteo activo
+                    </div>
+
+                </div>
+
+                <div class="badge">
+                    PREPARACIÓN
+                </div>
+
+            </div>
+
+
+            <div class="progress-area">
+
+                <div class="progress-header">
+
+                    <span>
+                        PROGRESO DE VENTAS
+                    </span>
+
+                    <span>
+                        0 / 0
+                    </span>
+
+                </div>
+
+                <div class="progress">
+
+                    <div class="progress-bar"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMACIÓN -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <div>
+
+                <span>ANÁLISIS</span>
+
+                <h2>
+                    Información comercial
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+            <div class="info">
+
+                <div class="info-label">
+                    PROSPECTOS
+                </div>
+
+                <div class="info-value">
+                    000
+                </div>
+
+            </div>
+
+
+            <div class="info">
+
+                <div class="info-label">
+                    CLIENTES
+                </div>
+
+                <div class="info-value">
+                    000
+                </div>
+
+            </div>
+
+
+            <div class="info">
+
+                <div class="info-label">
+                    TASA DE CIERRE
+                </div>
+
+                <div class="info-value">
+                    0%
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ACCIONES -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <div>
+
+                <span>DIRECCIÓN</span>
+
+                <h2>
+                    Próximas acciones
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="actions">
+
+
+            <div class="action">
+
+                <div class="action-left">
+
+                    <div class="action-number">
+                        01
+                    </div>
+
+                    <div class="action-name">
+                        Diseñar próximo sorteo
+                    </div>
+
+                </div>
+
+                <div class="action-status">
+                    PENDIENTE
+                </div>
+
+            </div>
+
+
+            <div class="action">
+
+                <div class="action-left">
+
+                    <div class="action-number">
+                        02
+                    </div>
+
+                    <div class="action-name">
+                        Preparar estrategia comercial
+                    </div>
+
+                </div>
+
+                <div class="action-status">
+                    PENDIENTE
+                </div>
+
+            </div>
+
+
+            <div class="action">
+
+                <div class="action-left">
+
+                    <div class="action-number">
+                        03
+                    </div>
+
+                    <div class="action-name">
+                        Preparar campaña de lanzamiento
+                    </div>
+
+                </div>
+
+                <div class="action-status">
+                    PENDIENTE
+                </div>
+
+            </div>
+
+
+            <div class="action">
+
+                <div class="action-left">
+
+                    <div class="action-number">
+                        04
+                    </div>
+
+                    <div class="action-name">
+                        Configurar control de ventas
+                    </div>
+
+                </div>
+
+                <div class="action-status">
+                    PENDIENTE
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <span>
+            GRUPO LEGADO
+        </span>
+
+        <span>
+            LEGADO SORTEOS · 2026
+        </span>
+
+    </footer>
+
+
+</main>
+
+</body>
+</html>
