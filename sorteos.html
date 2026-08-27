@@ -51,11 +51,37 @@ body{
     background:#090909;
 }
 
-.brand{
-    font-family:'Cormorant Garamond',serif;
-    color:var(--gold);
-    font-size:25px;
-    letter-spacing:4px;
+.brand-area{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+.logo-sorteos{
+    width:145px;
+    height:auto;
+    display:block;
+}
+
+.belongs-to{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding-left:24px;
+    border-left:1px solid rgba(212,175,55,.18);
+}
+
+.belongs-to span{
+    color:#555;
+    font-size:7px;
+    letter-spacing:2px;
+    white-space:nowrap;
+}
+
+.logo-grupo{
+    width:58px;
+    height:auto;
+    display:block;
 }
 
 .back{
@@ -336,8 +362,25 @@ footer{
 
 @media(max-width:600px){
 
-    .topbar{
-        padding:0 20px;
+ .brand-area{
+    gap:12px;
+}
+
+.logo-sorteos{
+    width:115px;
+}
+
+.belongs-to{
+    padding-left:12px;
+}
+
+.belongs-to span{
+    display:none;
+}
+
+.logo-grupo{
+    width:45px;
+}
     }
 
     .main{
@@ -385,9 +428,25 @@ footer{
 
 <header class="topbar">
 
-    <div class="brand">
-        LEGADO
+    <div class="brand-area">
+
+    <img
+        src="Logo%20Legado%20Sorteos.jpeg"
+        alt="Legado Sorteos"
+        class="logo-sorteos"
+    >
+
+    <div class="belongs-to">
+        <span>UNA EMPRESA DE</span>
+
+        <img
+            src="Logo%20Grupo%20Legado.jpeg"
+            alt="Grupo Legado"
+            class="logo-grupo"
+        >
     </div>
+
+</div>
 
     <a href="index.html" class="back">
         ← CENTRO DE MANDO
