@@ -42,57 +42,66 @@ body{
 /* BARRA SUPERIOR */
 
 .topbar{
-    height:75px;
+    min-height:270px;
     display:flex;
+    flex-direction:column;
     align-items:center;
-    justify-content:space-between;
-    padding:0 45px;
+    justify-content:center;
+    padding:30px 20px;
     border-bottom:1px solid rgba(255,255,255,.06);
     background:#090909;
 }
 
-.brand-area{
+.top-logo{
     display:flex;
+    flex-direction:column;
     align-items:center;
-    gap:24px;
+    justify-content:center;
+    gap:18px;
 }
 
 .logo-sorteos{
-    width:145px;
-    height:auto;
+    width:250px;
+    max-height:115px;
+    object-fit:contain;
     display:block;
 }
 
-.belongs-to{
+.corporate{
     display:flex;
+    flex-direction:column;
     align-items:center;
-    gap:10px;
-    padding-left:24px;
-    border-left:1px solid rgba(212,175,55,.18);
+    justify-content:center;
+    gap:8px;
 }
 
-.belongs-to span{
-    color:#555;
-    font-size:7px;
-    letter-spacing:2px;
-    white-space:nowrap;
+.corporate span{
+    color:#666;
+    font-size:8px;
+    letter-spacing:3px;
 }
 
 .logo-grupo{
-    width:58px;
-    height:auto;
+    width:120px;
+    max-height:60px;
+    object-fit:contain;
     display:block;
+    opacity:.9;
 }
 
 .back{
-    color:#777;
+    position:absolute;
+    right:30px;
+    bottom:18px;
+    color:#666;
     text-decoration:none;
-    font-size:11px;
+    font-size:9px;
     letter-spacing:1px;
 }
 
 .back:hover{
-    color:var(--gold);
+    color:#D4AF37;
+}
 }
 
 
