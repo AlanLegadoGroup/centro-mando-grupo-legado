@@ -1245,6 +1245,7 @@ footer{
 </main>
 
 <script>
+<script>
 function saveRaffle() {
   const name = document.getElementById("raffleName").value;
   const prize = document.getElementById("rafflePrize").value;
@@ -1269,8 +1270,43 @@ function saveRaffle() {
 
   localStorage.setItem("legadoRaffle", JSON.stringify(raffle));
 
+  document.querySelector(".raffle-form").innerHTML = `
+    <div class="form-header">
+      <div>
+        <div class="raffle-label">SORTEO ACTIVO</div>
+        <h2>${name}</h2>
+        <p>${description || "Sin descripción."}</p>
+      </div>
+
+      <span class="badge">ACTIVO</span>
+    </div>
+
+    <div class="info-grid">
+      <div class="info">
+        <div class="info-label">PREMIO</div>
+        <div class="info-value">${prize}</div>
+      </div>
+
+      <div class="info">
+        <div class="info-label">PRECIO DEL BOLETO</div>
+        <div class="info-value">$${price}</div>
+      </div>
+
+      <div class="info">
+        <div class="info-label">BOLETOS</div>
+        <div class="info-value">${tickets}</div>
+      </div>
+
+      <div class="info">
+        <div class="info-label">FECHA DEL SORTEO</div>
+        <div class="info-value">${date}</div>
+      </div>
+    </div>
+  `;
+
   alert("Sorteo guardado correctamente.");
 }
+</script>
 </script>
 </body>
 
